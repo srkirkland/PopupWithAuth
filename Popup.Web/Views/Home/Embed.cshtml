@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Financial Wizard Entry Homepage</h1>
+
+<h3>Below is the fake wizard which will send your value back to opener</h3>
+
+<input type="text" value="123123-213312-12312321-123123-32113" id="financialInput">
+
+<button id="submit">Submit!</button>
+
+<script>
+    const elementInOpenener = "lookup"; // TODO: from params, or use postMessage
+
+    addEventListener('click', function (e) {
+        if (e.target.id === 'submit') {
+            var input = document.getElementById('financialInput').value;
+
+            if (window.opener) {
+                window.opener.document.getElementById(elementInOpenener).value = input;
+                window.close();
+            } else {
+                alert('No opener');
+            }
+        }
+    });
+</script>

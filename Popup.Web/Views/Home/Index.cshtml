@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Sample page with financial COA entry</h1>
+
+<h3>Clicking the lookup button should launch a popup, auth, and then allow communication back to desired input</h3>
+
+<form>
+    <input type="text" id="lookup" />
+    <input type="button" value="Lookup" id="lookupButton" />
+</form>
+
+<script>
+    addEventListener('click', function (e) {
+        if (e.target.id === 'lookupButton') {
+            // open a popup window
+            var popup = window.open('https://localhost:7188/home/embed', '_blank', 'width=800,height=600');
+        }
+    });
+</script>
