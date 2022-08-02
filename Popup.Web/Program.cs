@@ -16,7 +16,9 @@ builder.Services.AddAuthentication(options =>
 .AddCookie()
 .AddOpenIdConnect(oidc =>
 {
-
+    oidc.ClientId = "";
+    oidc.ClientSecret = "";
+    oidc.Authority = "https://auth.com/oidc";
     oidc.ResponseType = OpenIdConnectResponseType.Code;
     oidc.Scope.Add("openid");
     oidc.Scope.Add("profile");
